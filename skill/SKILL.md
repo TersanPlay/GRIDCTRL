@@ -176,6 +176,10 @@ A Skill deve privilegiar esta arquitetura quando o pedido for “criar apresenta
 - Em SSR e hidratação, gerar composição idêntica no servidor e cliente. Mudança de variante somente por escolha explícita/configuração versionada. Uma `seed` só pode ser usada se o algoritmo e a seed forem estáveis e documentados.
 - Separar **variabilidade permitida** (cor decorativa, arte, ornamentação, ilustração) de **invariantes** (rotas, textos críticos, interação, estrutura de dados, ordem semântica, áreas clicáveis).
 
+
+### Fundo neutro com dois sobretons nos temas Mint e Lilac
+A composição permanece baseada na **skin original branco/cinza-claro** também nos presets `mint-lab` e `lilac-lab`. Nunca usar o verde do botão Mint ou o lilás do botão Lilac como preenchimento dominante do background. Misturar discretamente **dois tons quase cinza**: cinza-sálvia + cinza-azulado no Mint e cinza-lavanda + cinza-ardósia no Lilac, mantendo branco/cinza-claro no centro. Preservar `--canvas:#ECECEC`, `--surface:#F7F7F7` e `--paper:#FDFDFD`; reservar a cor de acento para botões, indicadores, pequenos detalhes e estados explicitamente projetados. A variação não deve modificar estrutura, posicionamento ou semântica de cores funcionais.
+
 ### 2. Arte independente de funcionalidade
 - Formas, grids decorativos, sprites, texturas e 3D são **camada opcional**: `aria-hidden="true"` quando não informativos; `pointer-events:none` em overlays decorativos; empilhamento/z-index que nunca cubra controles, foco, textos ou navegação.
 - O conteúdo permanece legível sem arte, animação, JavaScript opcional ou assets. Não converter texto essencial em imagem.

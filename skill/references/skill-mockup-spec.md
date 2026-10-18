@@ -24,3 +24,11 @@ Use semantic HTML, CSS Grid/Flexbox, accessible interaction states, visible keyb
 
 ## Image reference
 See `assets/robot-reference.webp` for the 3D robot integrated in the landing page hero. The complete visual reference is the rendered index.html; stylistic rules are approximations, not pixel-accurate measurements of original artwork.
+
+## Fundos neutros para Mint / Forest e Lilac / Iris
+Nos presets `mint-lab` e `lilac-lab`, manter a estrutura clara original: canvas `#ECECEC`, superfícies `#F7F7F7` e paper `#FDFDFD`. A cor principal dos botões deve permanecer separada do fundo. O fundo recebe uma mescla **muito sutil de duas cores dessaturadas e próximas do cinza**, nunca um preenchimento verde ou lilás saturado.
+
+- **Mint / Forest:** mesclar cinza-sálvia `#E7EDEA` e cinza-azulado `#EAEDF0`, com `#ECECEC` no centro; CTA verde `#83CBA8`.
+- **Lilac / Iris:** mesclar cinza-lavanda `#ECE9F0` e cinza-ardósia `#E9EDF1`, com `#ECECEC` no centro; CTA lilás `#B7A1E2`.
+
+A mescla é apenas estética, não deve cobrir conteúdo, comprometer contraste ou causar instabilidade de layout. Preferir `linear-gradient` leve e estático em CSS, sem engines gráficas.

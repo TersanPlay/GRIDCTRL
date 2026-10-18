@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$comment": "Six stable GRIDCTRL palettes. Values are starting points; measure contextual contrast before declaring WCAG conformance. Layout invariants are mandatory.",
+  "$comment": "Six stable GRIDCTRL palettes. Mint and Lilac preserve original light gray/white skin, mixing two muted gray undertones in the background, while accent remains exclusive to CTA/details. WCAG context must be checked.",
   "version": "1.0.0",
   "defaultVariant": "industrial",
   "composition": {
@@ -89,16 +89,22 @@
     "mint-lab": {
       "label": "Mint Lab",
       "art": {
-        "canvas": "#ECF4F0",
-        "surface": "#F6FCF7",
-        "ink": "#172923",
-        "divider": "#C4D9CF",
+        "canvas": "#ECECEC",
+        "surface": "#F7F7F7",
+        "ink": "#17211D",
+        "divider": "#C8C8C8",
         "accent": "#83CBA8",
-        "ornament": "#DAEEE2"
+        "ornament": "#DAEEE2",
+        "backgroundBlend": {
+          "from": "#E7EDEA",
+          "to": "#EAEDF0",
+          "mode": "subtle-neutral-gray",
+          "direction": "118deg"
+        }
       },
       "semantic": {
-        "text": "#172923",
-        "textMuted": "#456156",
+        "text": "#17211D",
+        "textMuted": "#626662",
         "actionBackground": "#83CBA8",
         "actionText": "#172923",
         "focus": "#23549A",
@@ -110,16 +116,22 @@
     "lilac-lab": {
       "label": "Lilac Lab",
       "art": {
-        "canvas": "#F1EFF9",
-        "surface": "#F9F7FF",
-        "ink": "#221D35",
-        "divider": "#D3CDE4",
+        "canvas": "#ECECEC",
+        "surface": "#F7F7F7",
+        "ink": "#25212A",
+        "divider": "#C8C8C8",
         "accent": "#B7A1E2",
-        "ornament": "#E3DDF5"
+        "ornament": "#E3DDF5",
+        "backgroundBlend": {
+          "from": "#ECE9F0",
+          "to": "#E9EDF1",
+          "mode": "subtle-neutral-gray",
+          "direction": "118deg"
+        }
       },
       "semantic": {
-        "text": "#221D35",
-        "textMuted": "#58516A",
+        "text": "#25212A",
+        "textMuted": "#646168",
         "actionBackground": "#B7A1E2",
         "actionText": "#221D35",
         "focus": "#1D57A6",

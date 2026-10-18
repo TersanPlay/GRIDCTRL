@@ -51,11 +51,11 @@ O **Theme Lab** da landing page permite selecionar uma paleta e observar a alter
 | `industrial` | Grafite / Laranja · padrão GRIDCTRL | `#FF741D` |
 | `soft-pastel` | Pêssego / Blush | `#E9AA91` |
 | `warm-editorial` | Areia / Terracota | `#E98241` |
-| `mint-lab` | Menta / Floresta | `#83CBA8` |
-| `lilac-lab` | Lavanda / Íris | `#B7A1E2` |
+| `mint-lab` | Cinza original com mescla sálvia + cinza-azulado; CTA verde | `#83CBA8` |
+| `lilac-lab` | Cinza original com mescla lavanda + cinza-ardósia; CTA lilás | `#B7A1E2` |
 | `midnight` | Grafite escuro / Elétrico | `#FF8746` |
 
-As variações são **determinísticas**: alteram cores artísticas e superfícies, sem reorganizar aleatoriamente a interface. Os valores são propostas de design; contrastes devem ser verificados no contexto final.
+As variações são **determinísticas**: alteram cores artísticas e superfícies, sem reorganizar aleatoriamente a interface. Nos temas **Mint / Forest** e **Lilac / Iris**, o background permanece branco/cinza-claro como na skin original; duas tonalidades levemente coloridas e próximas do cinza se mesclam em um gradiente sutil, enquanto o verde e o lilás permanecem nos CTAs. Os valores são propostas de design; contrastes devem ser verificados no contexto final.
 
 ## ◈ Funcionalidades e princípios
 
