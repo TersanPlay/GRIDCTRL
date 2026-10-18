@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "Six stable GRIDCTRL palettes. Values are starting points; measure contextual contrast before declaring WCAG conformance. Layout invariants are mandatory.",
+  "version": "1.0.0",
+  "defaultVariant": "industrial",
+  "composition": {
+    "stableId": "gridctrl-layout-v1",
+    "allowUnseededRandomness": false,
+    "invariants": [
+      "semanticDOMOrder",
+      "contentHierarchy",
+      "interactiveTargets",
+      "navigation",
+      "dataBindings",
+      "focusOrder"
+    ],
+    "allowedVariations": [
+      "decorativeGeometry",
+      "nonSemanticBackgrounds",
+      "surfaceTones",
+      "illustrations"
+    ],
+    "requiresExplicitVariantSwitch": true
+  },
+  "variants": {
+    "industrial": {
+      "label": "Technical Swiss / padrão",
+      "art": {
+        "canvas": "#ECECEC",
+        "surface": "#F7F7F7",
+        "ink": "#101010",
+        "divider": "#C8C8C8",
+        "accent": "#FF741D",
+        "ornament": "#D8D8D8"
+      },
+      "semantic": {
+        "text": "#101010",
+        "textMuted": "#545454",
+        "actionBackground": "#FF741D",
+        "actionText": "#101010",
+        "focus": "#1455B5",
+        "error": "#B42318",
+        "warning": "#854D0E",
+        "success": "#216E39"
+      }
+    },
+    "soft-pastel": {
+      "label": "Pastel controlado",
+      "art": {
+        "canvas": "#F2EFEF",
+        "surface": "#FFFCFA",
+        "ink": "#29252A",
+        "divider": "#CFC7C8",
+        "accent": "#E9AA91",
+        "ornament": "#E8D7D7"
+      },
+      "semantic": {
+        "text": "#29252A",
+        "textMuted": "#575259",
+        "actionBackground": "#E9AA91",
+        "actionText": "#241A1D",
+        "focus": "#284C99",
+        "error": "#A51D25",
+        "warning": "#775108",
+        "success": "#216343"
+      }
+    },
+    "warm-editorial": {
+      "label": "Editorial neutro e quente",
+      "art": {
+        "canvas": "#EEEDE6",
+        "surface": "#FAF9F3",
+        "ink": "#171715",
+        "divider": "#D0CDC2",
+        "accent": "#E98241",
+        "ornament": "#DBD6C7"
+      },
+      "semantic": {
+        "text": "#171715",
+        "textMuted": "#55534C",
+        "actionBackground": "#E98241",
+        "actionText": "#171715",
+        "focus": "#1759A1",
+        "error": "#AC2620",
+        "warning": "#76510A",
+        "success": "#28653E"
+      }
+    },
+    "mint-lab": {
+      "label": "Mint Lab",
+      "art": {
+        "canvas": "#ECF4F0",
+        "surface": "#F6FCF7",
+        "ink": "#172923",
+        "divider": "#C4D9CF",
+        "accent": "#83CBA8",
+        "ornament": "#DAEEE2"
+      },
+      "semantic": {
+        "text": "#172923",
+        "textMuted": "#456156",
+        "actionBackground": "#83CBA8",
+        "actionText": "#172923",
+        "focus": "#23549A",
+        "error": "#A51D25",
+        "warning": "#775108",
+        "success": "#216343"
+      }
+    },
+    "lilac-lab": {
+      "label": "Lilac Lab",
+      "art": {
+        "canvas": "#F1EFF9",
+        "surface": "#F9F7FF",
+        "ink": "#221D35",
+        "divider": "#D3CDE4",
+        "accent": "#B7A1E2",
+        "ornament": "#E3DDF5"
+      },
+      "semantic": {
+        "text": "#221D35",
+        "textMuted": "#58516A",
+        "actionBackground": "#B7A1E2",
+        "actionText": "#221D35",
+        "focus": "#1D57A6",
+        "error": "#A51D25",
+        "warning": "#775108",
+        "success": "#216343"
+      }
+    },
+    "midnight": {
+      "label": "Midnight / Electric",
+      "art": {
+        "canvas": "#151B24",
+        "surface": "#202833",
+        "ink": "#F0F5F7",
+        "divider": "#425262",
+        "accent": "#FF8746",
+        "ornament": "#384452"
+      },
+      "semantic": {
+        "text": "#F0F5F7",
+        "textMuted": "#CAD5DB",
+        "actionBackground": "#FF8746",
+        "actionText": "#121921",
+        "focus": "#8DC1FF",
+        "error": "#FF9B9B",
+        "warning": "#FFD38B",
+        "success": "#A4E4BC"
+      }
+    }
+  }
+}

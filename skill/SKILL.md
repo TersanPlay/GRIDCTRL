@@ -34,14 +34,14 @@ Quando houver adaptação para outro projeto, a Skill deve manter **a espinha do
 
 ---
 
-## Fonte primária de verdade
-Antes de responder ou implementar, considerar nesta ordem:
-1. `assets/robot-reference.webp` — referência visual principal e mandatória.
-2. `references/skill-mockup-spec.md` — tradução técnica detalhada da imagem.
-3. `assets/swiss-reference.tokens.json` e `assets/swiss-reference.tokens.css` — tokens base.
-4. Demais arquivos de apoio desta Skill.
+## Fontes de referência e prioridades
+1. **Pedido do usuário, contexto e restrições do sistema real** (funcionalidade, acessibilidade e segurança).
+2. `references/skill-mockup-spec.md` — especificação completa do estilo GRIDCTRL, derivada da landing page.
+3. `assets/robot-reference.webp` — **recorte ilustrativo do robô do hero**, não a captura integral do site.
+4. `assets/tokens.json`, `assets/tokens.css` e `assets/variants.json` — cores semânticas e presets determinísticos.
+5. `references/quality-gates.md` — critérios de aceitação e evidência.
 
-Se alguma instrução conflitar com a referência visual, **prevalece a referência visual** salvo solicitação explícita do usuário.
+A estética GRIDCTRL é o padrão inicial; preserve seu DNA quando aplicável, mas **nunca coloque a fidelidade visual acima de acessibilidade, funcionalidade, desempenho ou regras de negócio**. O arquivo `index.html` da raiz do repositório original serve como demonstração completa, mas pode não estar presente quando a pasta `skill/` for instalada isoladamente.
 
 ---
 
@@ -154,6 +154,61 @@ A Skill deve privilegiar esta arquitetura quando o pedido for “criar apresenta
 
 ---
 
+## Componentes de UI — regra mandatória (sem controles nativos crus)
+
+**Não orientar nem gerar interfaces finais com o visual padrão dos componentes nativos do navegador.** A Skill deve recomendar componentes visualmente consistentes, acessíveis e integrados ao design system do produto, com estados completos de foco, hover, erro, desabilitado e carregamento.
+
+1. **Em React/Next.js**, preferir **shadcn/ui** quando for compatível com o projeto e aprovado pelo contexto técnico. Usar os componentes apropriados (Button, Card, Badge, Tabs, Dialog, Accordion, Select, Switch, Slider, Popover, Tooltip, Toast e Form), normalmente apoiados por Radix UI/Base UI conforme a versão da biblioteca. Verificar documentação, dependências e acessibilidade da versão efetivamente instalada.
+2. **Em projetos não React**, buscar biblioteca de componentes acessíveis do próprio ecossistema e adaptá-la ao estilo GRIDCTRL. Se não houver uma biblioteca adequada, implementar componentes próprios com semântica e interações equivalentes, totalmente estilizados e testados. **Não migrar toda a aplicação para React apenas para usar shadcn/ui**, sem autorização.
+3. **Evitar a aparência e o comportamento crus de browser defaults**, como `<select>`, `<details>`, `<dialog>`, campos de busca, botões e sliders sem tratamento visual consistente. Mesmo componentes como Dropdown/Select devem ter estados de foco, teclado, seleção, posicionamento e feedback corretos.
+4. **Não banir HTML semântico**: `<button>`, `<input>`, `<label>`, `<form>`, `<nav>` e demais elementos base continuam necessários à acessibilidade e frequentemente são usados internamente pelo próprio shadcn/ui. A restrição é ao **widget nativo sem design system**, não ao uso correto da semântica HTML.
+5. Antes de adicionar bibliotecas, executar auditoria de dependências e reutilizar o kit de UI já existente quando for tão acessível e consistente quanto shadcn/ui. Estilização e funcionalidade não podem divergir entre projetos.
+
+**Critério de aceite:** qualquer controle exposto ao usuário deve apresentar identidade visual implementada, teclado/foco, touch, estados, contraste e comportamento adequados; componentes sem estilo e sem teste reprovam. Uma *demonstração HTML estática* pode ser inspirada no visual do shadcn/ui, mas nunca deve ser descrita como usando seus componentes React reais sem integrá-los de fato.
+
+---
+
+## Política obrigatória para projetos reais — seis pilares
+
+### 1. Variações controladas e reproduzíveis
+- Escolher um **preset explícito** (ex.: `industrial`, `soft-pastel`, `warm-editorial`) e registrar `variantId`, versão e parâmetros no design system. A opção padrão é `industrial`.
+- Preservar ordem, grid, posição dos blocos e hierarquia entre renders. Qualquer variação é derivada de configuração estável, nunca de `Math.random()` na renderização, horário atual, ordem instável de dados ou estado implícito.
+- Em SSR e hidratação, gerar composição idêntica no servidor e cliente. Mudança de variante somente por escolha explícita/configuração versionada. Uma `seed` só pode ser usada se o algoritmo e a seed forem estáveis e documentados.
+- Separar **variabilidade permitida** (cor decorativa, arte, ornamentação, ilustração) de **invariantes** (rotas, textos críticos, interação, estrutura de dados, ordem semântica, áreas clicáveis).
+
+### 2. Arte independente de funcionalidade
+- Formas, grids decorativos, sprites, texturas e 3D são **camada opcional**: `aria-hidden="true"` quando não informativos; `pointer-events:none` em overlays decorativos; empilhamento/z-index que nunca cubra controles, foco, textos ou navegação.
+- O conteúdo permanece legível sem arte, animação, JavaScript opcional ou assets. Não converter texto essencial em imagem.
+- Em viewport estreita, zoom alto ou `prefers-reduced-motion`, reduzir ou remover decoração antes de degradar legibilidade e interação.
+
+### 3. Cores semânticas antes da paleta artística
+- Distinguir tokens **de identidade** (`canvas`, `accent`, `ornament`) de tokens **funcionais** (`text`, `surface`, `interactive`, `focus`, `error`, `warning`, `success`, `disabled`).
+- Aplicar contraste WCAG 2.2 AA ao conteúdo legível: referência mínima 4,5:1 para texto comum e 3:1 para texto grande; indicadores de foco e limites de componentes devem atender aos critérios aplicáveis.
+- No preset pastel, usar fundos suaves com **texto e ícones suficientemente escuros**; não depender apenas de cor para sinalizar estado. Tokens podem ser refinados após medição no contexto real.
+- Consultar `assets/variants.json` e `assets/tokens.css`; nenhum preset pode anular o significado de foco, erro, aviso ou sucesso.
+
+### 4. Desempenho por padrão
+- Preferir **CSS e SVG simples** para geometria, grids, retículas, ícones e efeitos equivalentes. Não introduzir Three.js/WebGL/canvas 3D ou animações pesadas apenas para reproduzir uma decoração alcançável de forma mais leve.
+- Se 3D real for indispensável, exigir benefício mensurável, fallback estático, lazy loading, redução de movimento, orçamento de rede e validação em hardware de entrada.
+- Definir orçamentos proporcionais ao projeto. Usar como alvos de experiência, quando mensuráveis: **LCP ≤ 2,5 s; INP ≤ 200 ms; CLS ≤ 0,1** no percentil 75. Resultados só podem ser alegados após medição.
+- Evitar renderização custosa, reflows desnecessários, dependências redundantes e imagens superdimensionadas.
+
+### 5. Auditoria antes de alterar aplicações existentes
+- Antes de editar: identificar stack, rotas, dependências, componentes, tokens, temas, estado, autenticação, permissões, modelos, APIs, regras funcionais, testes e páginas afetadas.
+- Distinguir evidência observada de hipótese. Produzir mapa **preservar / reutilizar / alterar / remover**, dependências impactadas e riscos de regressão.
+- Não refazer arquitetura, autenticação, regras de negócio, dados ou serviços sem justificativa e autorização. Preferir implementação incremental e reversível.
+- Quando acesso ao repositório for indisponível, **não fingir auditoria**: solicitar os arquivos necessários ou delimitar explicitamente o escopo do que pode ser avaliado.
+
+### 6. Verificação de fidelidade, UX e código
+- Criar matriz de aceite **referência → tokens → componentes → estados → implementação**, com propriedades observáveis (ordem, proporções, grid, tipografia, cor, ritmo, densidade).
+- Comparar capturas em desktop, tablet e mobile quando possível, incluindo estados de hover/focus/disabled/loading/empty/error. Avaliar sobreposição decorativa, overflow, acessibilidade, navegação por teclado e legibilidade.
+- Reprovar soluções que apenas apliquem laranja, sombras ou fontes “tech” genéricas sem respeitar a estrutura, a hierarquia, a coerência visual e os padrões de interação solicitados.
+- Executar testes de build/lint, fluxos e performance quando disponíveis. Identificar separadamente **testado**, **inspecionado** e **não verificado**; jamais inventar métricas.
+
+**Gate de execução:** em projeto existente, executar `AUDIT → PLAN → BUILD → VALIDATE`. Em projeto novo, executar `DISCOVER/DECONSTRUCT → PLAN → BUILD → VALIDATE`. Para alterações apenas documentais, aplicar verificações proporcionais.
+
+---
+
 ## Regras de implementação
 1. **Não simplificar o layout ao ponto de perder a identidade.**
 2. **Não substituir o grid técnico por seções convencionais demais.**
@@ -167,6 +222,9 @@ A Skill deve privilegiar esta arquitetura quando o pedido for “criar apresenta
 ---
 
 ## Modos de atuação da Skill
+
+### `DISCOVER`
+Pesquisar referências, entender pessoas, contexto, objetivos, restrições e repertório visual; distinguir fontes verificadas de inferências.
 
 ### `DECONSTRUCT`
 Extrair da imagem:
@@ -205,6 +263,9 @@ Aplicar a mesma estética a:
 - páginas de portfólio;
 - sistemas administrativos.
 
+### `AUDIT`
+Inspecionar arquitetura, rotas, componentes, permissões, regras e riscos antes de modificar sistemas existentes. Produzir inventário e plano de alterações incrementais.
+
 ### `VALIDATE`
 Conferir:
 - fidelidade visual ao mockup;
@@ -240,7 +301,13 @@ Uma entrega só está boa se:
 - a tipografia display tiver protagonismo real;
 - os blocos parecerem parte de um ecossistema coerente;
 - a implementação estiver limpa e navegável;
-- a acessibilidade mínima estiver preservada.
+- a acessibilidade mínima estiver preservada;
+- a mesma entrada e o mesmo preset produzirem a mesma composição;
+- os elementos artísticos não bloquearem conteúdo ou comandos;
+- a paleta semântica passar por verificações de contraste;
+- os recursos decorativos não exigirem bibliotecas pesadas sem justificativa;
+- a auditoria de sistemas existentes preceder qualquer alteração;
+- o checklist de fidelidade e qualidade apresentar evidências ou limitações claras.
 
 ---
 
@@ -262,5 +329,8 @@ Quando executar tarefas com esta Skill, a resposta deve incluir, conforme aplic�
 - `templates/brief.md`
 - `templates/plano-de-implementacao.md`
 - `templates/relatorio-final.md`
-- `assets/swiss-reference.tokens.json`
-- `assets/swiss-reference.tokens.css`
+- `references/quality-gates.md`
+- `docs/AGENT-INTEGRATION.md` (na raiz do repositório, quando disponível)
+- `assets/tokens.json` e `assets/tokens.css`
+- `assets/variants.json`
+- `assets/swiss-reference.tokens.json` e `assets/swiss-reference.tokens.css` (compatibilidade)
