@@ -1,0 +1,15 @@
+:root {
+  --grid-canvas:#ececec;
+  --grid-paper:#f7f7f7;
+  --grid-surface:#fdfdfd;
+  --grid-ink:#101010;
+  --grid-muted:#626262;
+  --grid-border:#c8c8c8;
+  --grid-accent:#ff741d;
+  --grid-accent-deep:#ee6110;
+  --grid-font-display:'Arial Black','DejaVu Sans',sans-serif;
+  --grid-font-mono:'DejaVu Sans Mono',Consolas,monospace;
+  --grid-font-body:Arial,'DejaVu Sans',sans-serif;
+  --grid-radius-frame:18px;
+  --grid-radius-card:0;
+}
