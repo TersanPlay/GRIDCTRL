@@ -1,0 +1,36 @@
+name: Render README PNG previews
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/images/preview-desktop.svg"
+      - "docs/images/preview-mobile.svg"
+      - ".github/workflows/render-readme-previews.yml"
+      - "scripts/render_readme_previews.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render-previews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install image renderer
+        run: python -m pip install --disable-pip-version-check cairosvg pillow
+      - name: Render and verify PNG previews
+        run: python scripts/render_readme_previews.py
+      - name: Commit raster previews and README
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/images/preview-desktop.png docs/images/preview-mobile.png README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "fix(docs): use PNG for desktop and mobile README images"
+            git push
+          fi
