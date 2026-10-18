@@ -282,6 +282,10 @@ Conferir:
 
 ---
 
+
+### Tema Midnight / Electric — manter a arte principal visível
+No preset `midnight`, não escurecer o robô e as ilustrações claras por mistura multiplicativa com um fundo escuro. Para a imagem da hero, usar `mix-blend-mode: normal` e brilho/contraste controlados; estabelecer fundo grafite ligeiramente mais claro somente no painel visual, preservando a identidade escura. Grid decorativo e overlays devem ter opacidade moderada e nunca reduzir a leitura do assunto principal. Verificar a hero com captura de tela no tema escuro, incluindo estado responsivo, e não aplicar essas compensações nos temas claros.
+
 ## Responsividade esperada
 No mobile e tablet, a Skill deve:
 - preservar a mesma identidade visual;

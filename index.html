@@ -59,7 +59,24 @@ html[data-gridctrl-theme] .btn-accent{background:var(--orange);border-color:var(
 html[data-gridctrl-theme="midnight"] .btn-accent{color:#121921}
 html[data-gridctrl-theme] .nav-mobile{background:var(--surface)}
 html[data-gridctrl-theme] .hero-left:before{opacity:.3}
-html[data-gridctrl-theme="midnight"] .hero-robot{filter:brightness(.9)}
+/* Midnight: keep the transparent artwork readable on dark backgrounds.
+   multiply blend mode would multiply light robot pixels into near-black. */
+html[data-gridctrl-theme="midnight"] .hero-visual-stage {
+  background:linear-gradient(120deg,#293540 0%,#26333f 50%,#30404d 100%);
+  isolation:isolate;
+}
+html[data-gridctrl-theme="midnight"] .hero-visual-stage::before {
+  opacity:.20;
+  pointer-events:none;
+}
+html[data-gridctrl-theme="midnight"] .hero-robot {
+  mix-blend-mode:normal;
+  filter:brightness(1.12) contrast(1.05) saturate(1.05);
+  opacity:1;
+}
+html[data-gridctrl-theme="midnight"] .hero-side-note {
+  color:var(--ink);
+}
 html[data-gridctrl-theme="midnight"] .hero-side-note,html[data-gridctrl-theme="midnight"] .footer-wordmark{color:var(--ink)}
 .theme-studio{border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(270px,.7fr);background:var(--canvas);scroll-margin-top:10px;}
 .theme-studio-info{padding:25px 26px 27px;border-right:1px solid var(--line)}

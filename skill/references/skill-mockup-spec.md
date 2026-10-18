@@ -32,3 +32,6 @@ Nos presets `mint-lab` e `lilac-lab`, manter a estrutura clara original: canvas 
 - **Lilac / Iris:** mesclar cinza-lavanda `#ECE9F0` e cinza-ardósia `#E9EDF1`, com `#ECECEC` no centro; CTA lilás `#B7A1E2`.
 
 A mescla é apenas estética, não deve cobrir conteúdo, comprometer contraste ou causar instabilidade de layout. Preferir `linear-gradient` leve e estático em CSS, sem engines gráficas.
+
+## Midnight / Electric — imagem da hero sobre fundo escuro
+Em modo escuro, manter a imagem do robô claramente reconhecível. O CSS base pode empregar `mix-blend-mode: multiply` para a skin clara; **sob `midnight`, sobrescrever para `mix-blend-mode: normal`**, com `brightness(1.12) contrast(1.05) saturate(1.05)` na arte. O painel visual usa degradê grafite discreto `#293540 → #26333F → #30404D` e o grid decorativo recebe opacidade reduzida `0.20`. Nenhuma dessas correções pode clarear o canvas principal ou afetar as outras cinco paletas.
