@@ -35,8 +35,8 @@ A direção visual nasce do **Swiss Grid / Technical Minimalism / Retro-futurism
     <th align="left">Mobile · reflow responsivo</th>
   </tr>
   <tr>
-    <td width="70%" valign="top"><img src="docs/images/preview-desktop.svg" width="100%" alt="Ilustração demonstrativa do GRIDCTRL no desktop: hero, grid técnico, cards e fluxo visual." /></td>
-    <td width="30%" valign="top"><img src="docs/images/preview-mobile.svg" width="100%" alt="Ilustração demonstrativa da adaptação do GRIDCTRL para celular." /></td>
+    <td width="70%" valign="top"><img src="docs/images/preview-desktop.png" width="100%" alt="Ilustração demonstrativa do GRIDCTRL no desktop: hero, grid técnico, cards e fluxo visual." /></td>
+    <td width="30%" valign="top"><img src="docs/images/preview-mobile.png" width="100%" alt="Ilustração demonstrativa da adaptação do GRIDCTRL para celular." /></td>
   </tr>
 </table>
 
