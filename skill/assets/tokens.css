@@ -34,3 +34,13 @@
 [data-gridctrl-variant="mint-lab"] {--gc-canvas:#ECECEC;--gc-surface:#F7F7F7;--gc-ink:#17211D;--gc-line:#C8C8C8;--gc-text:#17211D;--gc-text-muted:#626662;--gc-blend-a:#E7EDEA;--gc-blend-b:#EAEDF0;}
 [data-gridctrl-variant="lilac-lab"] {--gc-canvas:#ECECEC;--gc-surface:#F7F7F7;--gc-ink:#25212A;--gc-line:#C8C8C8;--gc-text:#25212A;--gc-text-muted:#646168;--gc-blend-a:#ECE9F0;--gc-blend-b:#E9EDF1;}
 [data-gridctrl-variant="mint-lab"],[data-gridctrl-variant="lilac-lab"]{--gc-background-blend:linear-gradient(118deg,var(--gc-blend-a),#ECECEC 49%,var(--gc-blend-b));}
+
+/* Midnight semantic contrast: copy and dialog content */
+[data-gridctrl-variant="midnight"] {
+  --gc-text:#F2F6F8;
+  --gc-text-muted:#C1CDD5;
+  --gc-text-quiet:#B4C4CB;
+  --gc-dialog-bg:#202833;
+  --gc-dialog-text:#F2F6F8;
+  --gc-dialog-secondary:#C1CDD5;
+}

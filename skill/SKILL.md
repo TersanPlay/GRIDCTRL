@@ -300,6 +300,12 @@ A versão mobile deve parecer **uma adaptação nativa do mesmo sistema**, nunca
 
 ---
 
+
+### Dark Mode / Midnight — contraste funcional é requisito, não ornamentação
+No preset `midnight`, descrições dos cards, metadados e conteúdo dos modais **não podem herdar cinza escuro próprio da versão clara**. Utilizar tokens semânticos com `text` próximo de `#F2F6F8` e `textMuted` próximo de `#C1CDD5` em superfícies grafite (`#202833` / `#27303B`), incluindo cada estado hover/focus/open.
+
+Ao trabalhar em aplicação existente, **inspecionar o nome real do componente modal/dialog** antes de escrever CSS. No GRIDCTRL, o modal real é `.detail-dialog`, com `.dialog-head`, `.dialog-content`, `#dialog-body` e `#dialog-extra`; seus títulos, parágrafos e itens de lista precisam de cores explícitas e fundo coerente. Componentes abertos não devem reverter a superfícies claras com texto claro. Assegurar contraste medido, teclado/foco e consistência das cinco outras paletas; ver `references/validacao-e-qualidade.md`.
+
 ## Critérios de aceite
 Uma entrega só está boa se:
 - a semelhança estrutural com o mockup for alta;

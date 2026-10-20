@@ -49,3 +49,11 @@ Registre `verificado`, `inspecionado` e `não verificado` separadamente. Execute
 - [ ] Desktop, tablet, mobile e teclado verificados
 - [ ] Comparação com referência documentada
 - [ ] Testes reais e limitações declarados
+
+
+### Gate específico: descrições e modais escuros
+- [ ] `midnight`: cada card e cada texto auxiliar mantém contraste ≥4,5:1 com a superfície aplicável.
+- [ ] Os componentes de modal reais foram identificados no repositório antes do CSS; títulos, body, lista dinâmica e botões conferidos.
+- [ ] FAQ expandida não herda superfícies claras incompatíveis.
+- [ ] Hover, foco, estado aberto e responsividade foram avaliados ou marcados como não verificados.
+- [ ] As demais variantes foram preservadas sem regressão visual.

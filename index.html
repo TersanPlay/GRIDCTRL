@@ -132,6 +132,96 @@ html:is([data-gridctrl-theme="mint-lab"],[data-gridctrl-theme="lilac-lab"]) .the
 }
 
 
+
+/* MIDNIGHT / ELECTRIC — accessible secondary copy and complete dialog surface.
+   Constraining these overrides to Midnight preserves all light palette variations. */
+html[data-gridctrl-theme="midnight"] {
+  --text:#F2F6F8;
+  --muted:#C1CDD5;
+  --theme-focus:#8DC1FF;
+  --midnight-secondary:#C1CDD5;
+  --midnight-quiet:#B4C4CB;
+  --midnight-dialog:#202833;
+}
+/* Cards: capability, process and use-case descriptions, labels and metadata. */
+html[data-gridctrl-theme="midnight"] .tile .tile-desc,
+html[data-gridctrl-theme="midnight"] .tile p,
+html[data-gridctrl-theme="midnight"] .insight-card p,
+html[data-gridctrl-theme="midnight"] .faq-content,
+html[data-gridctrl-theme="midnight"] .download-copy p,
+html[data-gridctrl-theme="midnight"] .section-heading > p,
+html[data-gridctrl-theme="midnight"] .theme-studio p {
+  color:var(--midnight-secondary);
+  opacity:1;
+}
+html[data-gridctrl-theme="midnight"] .tile-top,
+html[data-gridctrl-theme="midnight"] .insight-meta,
+html[data-gridctrl-theme="midnight"] .muted-link,
+html[data-gridctrl-theme="midnight"] .section-more.muted-link,
+html[data-gridctrl-theme="midnight"] .download-action > span,
+html[data-gridctrl-theme="midnight"] .footer-legal,
+html[data-gridctrl-theme="midnight"] .footer-col strong,
+html[data-gridctrl-theme="midnight"] .footer-metadata span,
+html[data-gridctrl-theme="midnight"] .theme-studio-meta,
+html[data-gridctrl-theme="midnight"] .palette-hint {
+  color:var(--midnight-quiet);
+  opacity:1;
+}
+html[data-gridctrl-theme="midnight"] .tile strong,
+html[data-gridctrl-theme="midnight"] .tile h3,
+html[data-gridctrl-theme="midnight"] .insight-card h3,
+html[data-gridctrl-theme="midnight"] .panel-section h2 {
+  color:var(--text);
+}
+/* Expanded FAQ rows must never revert to a light surface with inherited light text. */
+html[data-gridctrl-theme="midnight"] .faq-list details[open] {
+  background:var(--paper);
+  color:var(--text);
+}
+html[data-gridctrl-theme="midnight"] .faq-list details[open] summary {
+  color:var(--text);
+}
+/* The real dialog class is .detail-dialog (not .modal). Keep its panel and all
+   text on the same semantic dark surface, including generated list items. */
+html[data-gridctrl-theme="midnight"] .detail-dialog {
+  background:var(--midnight-dialog);
+  color:var(--text);
+  border-color:var(--line);
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-head {
+  background:var(--surface);
+  color:var(--midnight-quiet);
+  border-color:var(--line);
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-head button {
+  background:var(--orange);
+  color:#121921;
+  border-color:var(--line);
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content {
+  background:var(--midnight-dialog);
+  color:var(--text);
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content h2 {
+  color:var(--text);
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content p,
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content ul,
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content li,
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content #dialog-extra {
+  color:var(--midnight-secondary);
+  opacity:1;
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog .dialog-content .btn-accent {
+  background:var(--orange);
+  color:#121921;
+  border-color:var(--orange-dark);
+}
+html[data-gridctrl-theme="midnight"] .detail-dialog :focus-visible {
+  outline:3px solid var(--theme-focus);
+  outline-offset:3px;
+}
+
 </style>
 
 </head>

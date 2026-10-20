@@ -151,14 +151,18 @@
         "ornament": "#384452"
       },
       "semantic": {
-        "text": "#F0F5F7",
-        "textMuted": "#CAD5DB",
+        "text": "#F2F6F8",
+        "textMuted": "#C1CDD5",
         "actionBackground": "#FF8746",
         "actionText": "#121921",
         "focus": "#8DC1FF",
         "error": "#FF9B9B",
         "warning": "#FFD38B",
-        "success": "#A4E4BC"
+        "success": "#A4E4BC",
+        "textQuiet": "#B4C4CB",
+        "dialogBackground": "#202833",
+        "dialogText": "#F2F6F8",
+        "dialogSecondary": "#C1CDD5"
       }
     }
   }
