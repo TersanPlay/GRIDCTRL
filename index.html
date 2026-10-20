@@ -228,6 +228,34 @@ html[data-gridctrl-theme="midnight"] .detail-dialog :focus-visible {
 .insight-image img {filter:none;object-fit:cover;image-rendering:auto}
 html[data-gridctrl-theme="midnight"] .hero-robot {mix-blend-mode:normal}
 
+
+/* Accessibility quality gate: labels and metadata on pale surfaces must be readable.
+   Accent stays vivid for squares/buttons, but tiny text uses a darker tone.
+   Theme-switch must not animate background behind instantly recolored text. */
+html[data-gridctrl-theme] .tile {
+  transition-property:box-shadow;
+}
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .nav-current,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .nav-desktop a.nav-current,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .theme-studio-kicker,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .section-index,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .insight-category,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .section-more:hover {
+  color:#8D3500;
+}
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .tile-top,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .download-action>span,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .newsletter-notice,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .footer-brand>p,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .footer-col strong,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .footer-metadata span,
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .footer-legal {
+  color:#515151;
+}
+html[data-gridctrl-theme]:not([data-gridctrl-theme="midnight"]) .nav-star {
+  color:#8D3500;
+}
+
 </style>
 
 </head>
