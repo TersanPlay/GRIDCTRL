@@ -32,3 +32,12 @@ Ao implementar o preset `midnight` ou qualquer tema escuro:
 5. Componentes abertos (FAQ, Dialog, Popover, Accordion) devem seguir tokens do tema; revalidar os estados abertos, especialmente backgrounds com valores hex hard-coded.
 6. **Matriz de verificação**: testar `midnight` nos cards de Capabilities, Process, Use Cases; abrir cada tipo de modal; comparar FAQ fechado/aberto; verificar teclado, foco visível e zoom; confirmar que as outras cinco paletas não foram alteradas.
 7. Validar conformidade WCAG 2.2 AA pelo menos para os pares de cor usados: corpo/texto comum ≥4,5:1, textos grandes ≥3:1, e requisitos aplicáveis de foco e controles. Não declarar validação visual concluída sem abrir a página no navegador.
+
+
+### Gate: qualidade de imagens e ilustrações
+- [ ] A imagem do hero tem densidade adequada ao tamanho final e ao DPR, sem artefatos evidentes.
+- [ ] Thumbnails de cards são originais de alta resolução ou SVGs bem formados, não miniaturas ampliadas.
+- [ ] SVGs são autocontidos, têm texto alternativo contextual e não fazem requisições externas.
+- [ ] Imagens possuem tamanho explícito e carregamento apropriado (hero prioritário; cards abaixo da dobra lazy).
+- [ ] Compressão e filtros CSS não tornam textos/traços ilegíveis em tema claro ou Midnight.
+- [ ] Composição visual continua fiel à direção aprovada; quaisquer redesenhos são declarados.

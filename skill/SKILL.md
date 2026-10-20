@@ -306,6 +306,10 @@ No preset `midnight`, descrições dos cards, metadados e conteúdo dos modais *
 
 Ao trabalhar em aplicação existente, **inspecionar o nome real do componente modal/dialog** antes de escrever CSS. No GRIDCTRL, o modal real é `.detail-dialog`, com `.dialog-head`, `.dialog-content`, `#dialog-body` e `#dialog-extra`; seus títulos, parágrafos e itens de lista precisam de cores explícitas e fundo coerente. Componentes abertos não devem reverter a superfícies claras com texto claro. Assegurar contraste medido, teclado/foco e consistência das cinco outras paletas; ver `references/validacao-e-qualidade.md`.
 
+
+### Resolução e nitidez dos recursos visuais
+Na construção de aplicações que utilizem o design system GRIDCTRL, nunca ampliar miniaturas raster de baixa resolução para áreas hero ou cards. Sempre usar a imagem-fonte com resolução adequada ao tamanho exibido e ao DPR (preferencialmente 2x), ou **SVG vetorial de origem confiável** para ilustrações, wireframes e gráficos geométricos. Evitar compressão excessiva em imagens WebP/JPEG/AVIF; inspecionar artefatos de compressão e nitidez real no navegador. Se imagens raster forem necessárias, gerar variantes responsivas `srcset`/`sizes` e dimensões explícitas para evitar CLS. SVGs devem ser autocontidos e sanitizados, sem scripts, links externos ou IDs conflitantes. O HTML demonstrativo pode manter SVGs incorporados para funcionar offline, com fontes editáveis em `docs/images/`. Não substituir ilustrações aprovadas por imagens não relacionadas só para aumentar a resolução; comunicar quando uma arte for redesenhada e comparar composição com a referência.
+
 ## Critérios de aceite
 Uma entrega só está boa se:
 - a semelhança estrutural com o mockup for alta;

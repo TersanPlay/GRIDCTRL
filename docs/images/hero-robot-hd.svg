@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 980" role="img" aria-labelledby="heroTitle heroDesc">
+<title id="heroTitle">GRIDCTRL · Robô de arquitetura de interfaces</title>
+<desc id="heroDesc">Ilustração vetorial em alta definição de um robô branco com tela grafite, olhos iluminados, detalhes laranja e módulos técnicos flutuantes.</desc>
+<defs>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".37" stop-color="#ECEDEF"/><stop offset=".75" stop-color="#C5C9CD"/><stop offset="1" stop-color="#F2F2F2"/></linearGradient>
+<linearGradient id="shell" x1="0" y1="0" x2=".88" y2="1"><stop stop-color="#FFFFFF"/><stop offset=".47" stop-color="#F1F2F3"/><stop offset=".8" stop-color="#C9CCCF"/><stop offset="1" stop-color="#D7D9DB"/></linearGradient>
+<linearGradient id="orange" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#FFCE98"/><stop offset=".39" stop-color="#FF923B"/><stop offset=".8" stop-color="#F17019"/><stop offset="1" stop-color="#DA5819"/></linearGradient>
+<linearGradient id="dark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3B4650"/><stop offset=".4" stop-color="#131A20"/><stop offset="1" stop-color="#080D12"/></linearGradient>
+<radialGradient id="glass" cx=".3" cy=".2" r=".9"><stop stop-color="#39424A"/><stop offset=".68" stop-color="#151C23"/><stop offset="1" stop-color="#060B10"/></radialGradient>
+<radialGradient id="halo"><stop stop-color="#FF9D50" stop-opacity=".23"/><stop offset=".7" stop-color="#FF9D50" stop-opacity=".06"/><stop offset="1" stop-color="#FF9D50" stop-opacity="0"/></radialGradient>
+<linearGradient id="glassshine" x1=".15" y1="0" x2=".87" y2="1"><stop stop-color="#E8F2FA" stop-opacity=".35"/><stop offset=".35" stop-color="#B7D1E7" stop-opacity=".09"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="21"/></filter>
+<filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="12" dy="19" stdDeviation="12" flood-color="#48535E" flood-opacity=".18"/></filter>
+<filter id="orangeGlow"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<ellipse cx="570" cy="511" rx="500" ry="440" fill="url(#halo)"/>
+<g opacity=".22" stroke="#929BA3" fill="none"><path d="M42 170H1058M42 810H1058M185 80V900M903 80V900" stroke-width="1"/><path d="M80 470H200M890 470H1020M550 45V140M550 818V952" stroke-dasharray="8 13"/></g>
+<ellipse cx="550" cy="864" rx="306" ry="40" fill="#66717B" opacity=".16" filter="url(#shadow)"/>
+<!-- glass HUD -->
+<g transform="translate(102 354) rotate(-8 118 125)" filter="url(#soft)">
+ <rect x="0" y="0" width="246" height="266" rx="18" fill="#FAFAFA" fill-opacity=".86" stroke="#ADB3B8" stroke-width="3"/>
+ <rect x="14" y="13" width="218" height="32" rx="7" fill="#E6E8EA" stroke="#C9CCCE"/>
+ <circle cx="34" cy="28" r="6" fill="#FF923D"/><circle cx="51" cy="28" r="6" fill="#C5CCD1"/>
+ <rect x="22" y="68" width="79" height="13" rx="6" fill="#CBD0D4"/><rect x="22" y="94" width="178" height="9" rx="4" fill="#DCE0E2"/>
+ <rect x="22" y="113" width="141" height="9" rx="4" fill="#E2E5E6"/><rect x="22" y="135" width="160" height="9" rx="4" fill="#E2E5E6"/>
+ <rect x="22" y="168" width="201" height="74" rx="11" fill="#FFFFFF" stroke="#D0D6DA"/>
+ <path d="M42 215L77 199 109 210 150 188 193 198" stroke="#FF8128" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<!-- right floating cylindrical module -->
+<g transform="translate(777 246) rotate(29)" filter="url(#soft)">
+ <rect x="0" y="0" width="220" height="180" rx="70" fill="url(#shell)" stroke="#BBC1C5" stroke-width="5"/>
+ <ellipse cx="11" cy="91" rx="33" ry="71" fill="url(#metal)" stroke="#BCC2C6" stroke-width="5"/>
+ <ellipse cx="209" cy="89" rx="52" ry="71" fill="url(#metal)" stroke="#9CA5AC" stroke-width="5"/>
+ <ellipse cx="215" cy="88" rx="36" ry="54" fill="url(#dark)" stroke="#D1D5D9" stroke-width="10"/>
+ <ellipse cx="224" cy="89" rx="23" ry="35" fill="#070B10"/>
+ <path d="M44 28q80 -16 125 0" stroke="#fff" stroke-width="8" opacity=".9" fill="none"/>
+ <path d="M40 153q68 23 124 0" stroke="#A8AFB5" stroke-width="6" opacity=".7" fill="none"/>
+</g>
+<!-- floating forearm left -->
+<g transform="translate(172 615) rotate(-20)" filter="url(#soft)">
+ <rect x="0" y="6" width="181" height="162" rx="68" fill="url(#shell)" stroke="#B8BFC5" stroke-width="5"/>
+ <ellipse cx="45" cy="87" rx="46" ry="69" fill="url(#metal)" stroke="#C0C5CA" stroke-width="6"/>
+ <ellipse cx="43" cy="88" rx="26" ry="43" fill="url(#dark)" stroke="#A5ABB0" stroke-width="8"/>
+ <ellipse cx="43" cy="88" rx="16" ry="31" fill="#0D1116"/>
+ <path d="M94 24q55 -8 75 25M91 146q59 10 77 -27" fill="none" stroke="#fff" stroke-width="6" opacity=".8"/>
+</g>
+<!-- forearm lower right -->
+<g transform="translate(815 597) rotate(30)" filter="url(#soft)">
+ <rect x="0" y="0" width="140" height="169" rx="57" fill="url(#shell)" stroke="#BABFC4" stroke-width="5"/>
+ <ellipse cx="73" cy="10" rx="58" ry="30" fill="url(#metal)" stroke="#B2BABF" stroke-width="5"/>
+ <ellipse cx="73" cy="13" rx="37" ry="18" fill="url(#dark)" stroke="#A4ADB3" stroke-width="5"/>
+ <path d="M23 60q55 22 102 0" fill="none" stroke="#fff" stroke-width="6"/>
+</g>
+<!-- lower body -->
+<g filter="url(#soft)">
+ <path d="M407 644q-19 40 -9 89l49 118q20 39 81 41h97q65 -1 81 -44l49 -119q11 -47 -8 -87z" fill="url(#shell)" stroke="#B1B6BA" stroke-width="6"/>
+ <path d="M448 644h260v94q-19 49 -133 55 -109 -8 -127 -55z" fill="url(#metal)" stroke="#C5CCD0" stroke-width="4"/>
+ <path d="M469 788h206l-25 46q-7 14 -42 16h-66q-36 -2 -44 -16z" fill="#CED3D6" stroke="#ACB3BA" stroke-width="4"/>
+ <ellipse cx="576" cy="858" rx="65" ry="23" fill="#B9BEC1" stroke="#8B949A" stroke-width="5"/>
+ <ellipse cx="575" cy="852" rx="35" ry="10" fill="url(#dark)"/>
+ <rect x="640" y="709" width="46" height="72" rx="17" fill="url(#orange)" stroke="#E77A2B" stroke-width="4"/>
+ <rect x="653" y="727" width="20" height="31" rx="9" fill="#E7ECED"/>
+ <circle cx="573" cy="762" r="9" fill="#FF8A35" stroke="#EDC3A2" stroke-width="3"/>
+</g>
+<!-- main head and outer shell -->
+<g transform="rotate(-8 565 440)" filter="url(#soft)">
+ <rect x="340" y="225" width="474" height="446" rx="161" fill="url(#shell)" stroke="#C8CDCF" stroke-width="7"/>
+ <path d="M377 333q28 -79 144 -91h175q93 17 107 97" stroke="#fff" stroke-width="11" fill="none" opacity=".86"/>
+ <path d="M382 559q35 90 145 103h140q100 -8 139 -94" stroke="#A2AAAF" stroke-width="8" opacity=".42" fill="none"/>
+ <!-- orange bezel -->
+ <rect x="375" y="301" width="392" height="292" rx="107" fill="url(#orange)" stroke="#E9A26A" stroke-width="6"/>
+ <rect x="397" y="324" width="347" height="248" rx="90" fill="url(#dark)" stroke="#252B30" stroke-width="7"/>
+ <rect x="408" y="334" width="326" height="229" rx="82" fill="url(#glass)" stroke="#080C11" stroke-width="4"/>
+ <path d="M439 379q31 -35 119 -38h64q66 7 87 43v29q-70 -53 -186 -23 -70 22 -93 58z" fill="url(#glassshine)"/>
+ <rect x="475" y="427" width="56" height="77" rx="22" fill="#DBE6EE" opacity=".33" filter="url(#orangeGlow)"/>
+ <rect x="625" y="427" width="56" height="77" rx="22" fill="#DBE6EE" opacity=".33" filter="url(#orangeGlow)"/>
+ <rect x="482" y="424" width="48" height="65" rx="20" fill="#F2F9FB"/>
+ <rect x="628" y="424" width="48" height="65" rx="20" fill="#F2F9FB"/>
+ <path d="M495 435q4 -4 13 -3" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <path d="M641 435q4 -4 13 -3" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+ <!-- screws -->
+ <circle cx="381" cy="583" r="16" fill="url(#metal)" stroke="#ABB4BC" stroke-width="3"/><path d="M373 583h16" stroke="#929BA3" stroke-width="2.5"/>
+ <circle cx="760" cy="583" r="16" fill="url(#metal)" stroke="#ABB4BC" stroke-width="3"/><path d="M752 583h16" stroke="#929BA3" stroke-width="2.5"/>
+ <!-- ear modules -->
+ <rect x="305" y="399" width="73" height="122" rx="26" fill="url(#metal)" stroke="#C0C6CC" stroke-width="5"/>
+ <rect x="777" y="398" width="75" height="120" rx="28" fill="url(#metal)" stroke="#C0C6CC" stroke-width="5"/>
+ <rect x="784" y="425" width="25" height="70" rx="12" fill="#FF8728" opacity=".7"/>
+ <!-- orange ring on right -->
+ <ellipse cx="841" cy="464" rx="30" ry="61" fill="url(#orange)" stroke="#CA6120" stroke-width="3"/>
+ <ellipse cx="842" cy="464" rx="18" ry="42" fill="#D8DDDF" stroke="#B0B9C0" stroke-width="4"/>
+ <path d="M425 641q139 43 304 0" stroke="#fff" stroke-width="7" opacity=".75" fill="none"/>
+</g>
+<!-- independent technical HUD accent -->
+<g transform="translate(757 145)" stroke="#CDD4D8" fill="none" opacity=".8"><rect x="0" y="0" width="135" height="73" rx="10" stroke-width="3"/><path d="M16 20h74M16 35h102M16 51h82" stroke-width="5" stroke-linecap="round"/></g>
+<circle cx="783" cy="182" r="7" fill="#FF8E2D"/>
+<g stroke="#91999E" stroke-width="2" opacity=".7"><path d="M30 73h35M30 73v35M1070 73h-35M1070 73v35M30 910h35M30 910v-35M1070 910h-35M1070 910v-35"/></g>
+</svg>

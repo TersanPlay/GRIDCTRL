@@ -1,0 +1,74 @@
+name: Validate HD visual assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "docs/images/*-hd.svg"
+      - ".github/workflows/validate-hd-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install SVG renderer
+        run: python -m pip install --disable-pip-version-check cairosvg pillow
+      - name: Validate standalone SVG and render previews
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          import io
+          import re
+          from urllib.parse import unquote
+          import cairosvg
+          from PIL import Image
+
+          assets = [
+              ("hero-robot-hd.svg", 1100, 980),
+              ("insight-1-hd.svg", 1100, 540),
+              ("insight-2-hd.svg", 1100, 540),
+              ("insight-3-hd.svg", 1100, 540),
+          ]
+          for name, width, height in assets:
+              raw = (Path("docs/images") / name).read_bytes()
+              root = ET.fromstring(raw)
+              assert root.tag.endswith("svg"), name
+              assert root.get("viewBox"), name
+              assert not re.search(rb'<script\b|https?://(?!www.w3.org/2000/svg)', raw), name
+              png = cairosvg.svg2png(bytestring=raw, output_width=width, output_height=height)
+              with Image.open(io.BytesIO(png)) as rendered:
+                  assert rendered.size == (width, height), name
+              print(f"OK {name}: {width}x{height}, raster preview {len(png):,} bytes")
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          imgs = re.findall(r'<img\b[^>]*src="data:image/svg\+xml;charset=UTF-8,([^"]+)"', html)
+          assert len(imgs) == 4, f"Expected 4 self-contained HD images, got {len(imgs)}"
+          for i, encoded in enumerate(imgs, 1):
+              decoded = unquote(encoded)
+              assert ET.fromstring(decoded).tag.endswith("svg"), i
+          print("OK index.html: 4 self-contained well-formed vector image URIs")
+          PY
+      - name: Check inline frontend JavaScript syntax
+        shell: bash
+        run: |
+          node - <<'JS'
+          const fs = require('fs');
+          const html = fs.readFileSync('index.html', 'utf8');
+          const code = html.match(/<script>([\s\S]*?)<\/script>/)?.[1];
+          if (!code) throw new Error('Inline script missing');
+          new Function(code);
+          console.log('OK JavaScript syntax');
+          JS
