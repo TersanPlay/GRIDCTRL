@@ -1,0 +1,7 @@
+node_modules/
+examples/
+tests/
+.github/
+docs/
+index.html
+*.log

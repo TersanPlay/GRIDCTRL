@@ -1,7 +1,7 @@
 # GRIDCTRL — integração com agentes de IA
 
 ## O que é uma Skill de arquivo?
-É um conjunto de instruções e recursos que o agente pode ler **quando sua plataforma permite Skills locais ou anexos de contexto**. Não é uma API, servidor MCP, biblioteca JS ou instalação por npm. A leitura e aplicação dependem do ambiente do agente.
+É um conjunto de instruções e recursos que o agente pode ler **quando sua plataforma permite Skills locais ou anexos de contexto**. Ela não executa ações sozinha: depende do ambiente do agente. **Além disso, o repositório agora oferece um pacote JavaScript/CLI separado**, com tokens reais, validação, React e exemplos Vue. O pacote não é necessário para que o agente leia a Skill e ainda não é anunciado como publicado no npm.
 
 ## Conteúdo mínimo a copiar
 Copie toda a pasta `skill/`, preservando `SKILL.md`, `references/` e `assets/`. Não copiar só `SKILL.md` se quiser que o agente tenha acesso aos presets, tokens e critérios técnicos.
@@ -50,3 +50,7 @@ A landing estática na raiz (`index.html`) oferece seis variantes determinístic
 Para projetos React/Next.js, prefira componentes shadcn/ui reais, quando compatíveis. Em outros frameworks, use bibliotecas equivalentes acessíveis. **Não induza a IA a entregar controles visuais crus do navegador**; mantenha HTML semântico e todas as interações necessárias. Consulte `skill/references/componentes-e-shadcn.md`.
 
 Os controles shadcn-inspired da landing estática são uma demonstração visual, não imports de componentes React. Não force migração de stack apenas para reproduzir essa demonstração.
+
+## Ferramentas disponíveis quando o código inteiro está instalado
+
+Execute `npm install && npm run check && npm test && npm run build` na raiz (Node 22+). Em seguida `node src/cli/index.js init --target ./meu-app --variant industrial` cria CSS + configuração de forma não destrutiva. Consulte [docs/TOKENS.md](TOKENS.md) e [docs/ARCHITECTURE.md](ARCHITECTURE.md). Em React, `GridctrlProvider`/ `useGridctrl()` aplicam os presets do mesmo registry usado pela CLI. São recursos opcionais e **não constituem integração automática em todos os agentes**.

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+examples/react-shadcn/dist/
+examples/vue/dist/
+examples/react-shadcn/node_modules/
+examples/vue/node_modules/
+*.tgz
+.DS_Store

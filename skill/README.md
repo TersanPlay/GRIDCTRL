@@ -21,3 +21,7 @@ Em projetos existentes, **AUDIT antes de BUILD**. A prioridade de produto é: da
 ## Paletas e componentes
 
 Seis presets versionados estão disponíveis em [assets/variants.json](assets/variants.json), incluindo alternativas pastel, menta, lilás e escura. A [referência de componentes e shadcn/ui](references/componentes-e-shadcn.md) determina que a Skill não proponha widgets com a aparência nativa não estilizada do navegador. Em React, priorize shadcn/ui quando apropriado; fora de React, utilize um kit de componentes acessível do framework atual.
+
+## Toolkit executável complementar
+
+Quando a raiz do repositório estiver disponível, `npm run build` gera CSS, tokens em JSON DTCG-style e Sass a partir de `skill/assets/variants.json`. A CLI `node src/cli/index.js themes|validate|build|init` valida ou instala os arquivos gerados. `src/react/index.js` fornece GridctrlProvider; `examples/react-shadcn/` e `examples/vue/` exemplificam sua utilização. Essa camada é opcional para agentes que apenas leem SKILL.md. Consulte [Arquitetura](../docs/ARCHITECTURE.md).

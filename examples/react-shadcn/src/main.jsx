@@ -1,0 +1,1 @@
+import React from "react";import{createRoot}from"react-dom/client";import "@tersanplay/gridctrl/tokens.css";import "./style.css";import {GridctrlProvider} from "@tersanplay/gridctrl/react";import App from "./App.jsx";createRoot(document.getElementById("root")).render(<React.StrictMode><GridctrlProvider><App/></GridctrlProvider></React.StrictMode>);

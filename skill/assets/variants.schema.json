@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TersanPlay/GRIDCTRL/blob/main/skill/assets/variants.schema.json",
+  "title": "GRIDCTRL deterministic theme registry",
+  "type": "object",
+  "required": [
+    "version",
+    "defaultVariant",
+    "composition",
+    "variants"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+"
+    },
+    "defaultVariant": {
+      "type": "string"
+    },
+    "composition": {
+      "type": "object",
+      "required": [
+        "stableId",
+        "allowUnseededRandomness",
+        "invariants",
+        "allowedVariations",
+        "requiresExplicitVariantSwitch"
+      ],
+      "properties": {
+        "stableId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowUnseededRandomness": {
+          "const": false
+        },
+        "requiresExplicitVariantSwitch": {
+          "const": true
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "allowedVariations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "variants": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/$defs/variant"
+      }
+    }
+  },
+  "$defs": {
+    "hex": {
+      "type": "string",
+      "pattern": "^#[A-Fa-f0-9]{6}$"
+    },
+    "variant": {
+      "type": "object",
+      "required": [
+        "label",
+        "art",
+        "semantic"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "art": {
+          "type": "object",
+          "required": [
+            "canvas",
+            "surface",
+            "ink",
+            "divider",
+            "accent",
+            "ornament"
+          ],
+          "properties": {
+            "canvas": {
+              "$ref": "#/$defs/hex"
+            },
+            "surface": {
+              "$ref": "#/$defs/hex"
+            },
+            "ink": {
+              "$ref": "#/$defs/hex"
+            },
+            "divider": {
+              "$ref": "#/$defs/hex"
+            },
+            "accent": {
+              "$ref": "#/$defs/hex"
+            },
+            "ornament": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        },
+        "semantic": {
+          "type": "object",
+          "required": [
+            "text",
+            "textMuted",
+            "actionBackground",
+            "actionText",
+            "focus",
+            "error",
+            "warning",
+            "success"
+          ],
+          "properties": {
+            "text": {
+              "$ref": "#/$defs/hex"
+            },
+            "textMuted": {
+              "$ref": "#/$defs/hex"
+            },
+            "actionBackground": {
+              "$ref": "#/$defs/hex"
+            },
+            "actionText": {
+              "$ref": "#/$defs/hex"
+            },
+            "focus": {
+              "$ref": "#/$defs/hex"
+            },
+            "error": {
+              "$ref": "#/$defs/hex"
+            },
+            "warning": {
+              "$ref": "#/$defs/hex"
+            },
+            "success": {
+              "$ref": "#/$defs/hex"
+            },
+            "dialogBackground": {
+              "$ref": "#/$defs/hex"
+            },
+            "dialogText": {
+              "$ref": "#/$defs/hex"
+            },
+            "dialogSecondary": {
+              "$ref": "#/$defs/hex"
+            },
+            "textQuiet": {
+              "$ref": "#/$defs/hex"
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

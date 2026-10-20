@@ -8,6 +8,21 @@ description: >-
 
 # GRIDCTRL — UI/UX & Frontend Architect
 
+## Contrato de execução — ponto único de verdade
+
+**A Skill é o ponto de entrada de instruções para agentes de IA, não uma ferramenta executável por si só.** Quando o repositório GRIDCTRL completo estiver disponível, o agente também pode usar o toolkit `@tersanplay/gridctrl` (Node 22+, `package.json`, `src/core/`, `src/cli/`, `src/react/`, `examples/`). A Skill funciona isoladamente mesmo quando esses arquivos não estiverem disponíveis; nesse caso, **não simular ou alegar execução de comandos**.
+
+- **Fonte canônica dos temas:** `assets/variants.json` (preservar 6 presets e `composition.stableId`).
+- **Validação executável:** `npm run check`, `npm test`, `npm run build` na raiz do repositório. A CLI suporta `themes`, `validate`, `build` e `init`. Não instalar npm apenas para ler a Skill.
+- **Saídas:** CSS com custom properties, JSON de tokens no formato DTCG-style, variáveis Sass e cópia da configuração de temas.
+- **React:** `GridctrlProvider` e `useGridctrl()`, com exemplo usando componentes locais no padrão shadcn/ui e primitivas Radix; não descrever a demonstração como gerada oficialmente pelo CLI shadcn.
+- **Vue e outras stacks:** consumir o núcleo de temas/variantes; não migrar arquitetura existente sem autorização.
+- **Fonte documental central:** `SKILL.md` para comportamento do agente e, no repositório completo, `docs/ARCHITECTURE.md` para fluxo de código, `docs/TOKENS.md` para exports e `docs/QUALITY.md` para evidências.
+- **Não confundir** `skill/assets/tokens.css` e `tokens.json` com artefatos gerados de produção; os arquivos são snapshots de compatibilidade. Para integração real, use os arquivos derivados de `npm run build`.
+- **Não inventar conformidade:** CI cobre os testes declarados, não assegura que todo produto que aplique GRIDCTRL passe WCAG 2.2 AA.
+- **Regra de componentes:** nunca deixar controles com visual nativo cru; preferir shadcn/ui nos projetos React compatíveis, mantendo semântica HTML, foco e teclado.
+
+
 ## Missão
 Transformar a **imagem de referência da própria Skill** em um sistema operacional de design e frontend. Esta Skill deve refletir **cada detalhe estrutural, visual e compositivo** do mockup gerado `assets/robot-reference.webp`, traduzindo-o em instruções claras para análise, planejamento, implementação e validação.
 

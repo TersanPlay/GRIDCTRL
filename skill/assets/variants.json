@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "./variants.schema.json",
   "$comment": "Six stable GRIDCTRL palettes. Mint and Lilac preserve original light gray/white skin, mixing two muted gray undertones in the background, while accent remains exclusive to CTA/details. WCAG context must be checked.",
   "version": "1.0.0",
   "defaultVariant": "industrial",

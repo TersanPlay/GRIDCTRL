@@ -25,3 +25,17 @@ Obrigado por contribuir! O projeto reúne uma landing demonstrativa e uma Skill 
 
 ## Avisos
 Não inclua segredos, dados pessoais ou imagens de terceiros sem licença. Discussões e solicitações devem descrever passos de reprodução claros. Consulte a licença MIT na raiz do repositório.
+
+## Core, CLI e CI
+
+Use Node.js 22+. Antes de abrir um PR que altere temas ou componentes, execute:
+```bash
+npm install
+npm run check
+npm test
+npm run build
+cd examples/react-shadcn && npm install && npm run build
+cd ../vue && npm install && npm run build
+```
+
+Os testes de navegador ficam em `tests/e2e/` e são executados pelo workflow `.github/workflows/ci.yml`. Não editar arquivos `dist/` manualmente: eles são derivados de `skill/assets/variants.json`.

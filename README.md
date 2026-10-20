@@ -25,7 +25,30 @@
 
 A direção visual nasce do **Swiss Grid / Technical Minimalism / Retro-futurism**: linhas ortogonais, tipografia expressiva, módulos editoriais, superfícies claras, elementos robóticos e cores de acento utilizadas com disciplina.
 
-> **A Skill não é um framework nem um pacote npm.** É um conjunto versionável de instruções, tokens, referências e checklists para agentes capazes de ler e trabalhar com arquivos.
+> **Duas camadas independentes:** a Skill `skill/SKILL.md` fornece instruções a agentes compatíveis; o pacote JavaScript `@tersanplay/gridctrl` implementa tokens, geração de artefatos, validação e CLI. O pacote é **instalável pelo código-fonte/GitHub**, ainda não declarado como publicado no registro npm.
+
+## ◈ Ferramentas executáveis (novo)
+
+O projeto agora fornece **código real e testável**, além das instruções da Skill. Requer **Node.js 22+** para o import JSON nativo.
+
+```bash
+git clone https://github.com/TersanPlay/GRIDCTRL.git
+cd GRIDCTRL
+npm install
+npm run check               # Valida seis paletas e contraste
+npm test                    # Testes de tokens e CLI
+npm run build               # CSS + JSON DTCG + Sass
+node src/cli/index.js themes
+node src/cli/index.js init --target ./projeto-demo --variant mint-lab
+```
+
+A CLI também oferece `build --out <pasta>`, `validate --json` e `validate --config <arquivo>`. O `init` não sobrescreve arquivos existentes sem `--force`.
+
+**Artefatos gerados:** `dist/gridctrl.css`, `dist/gridctrl.tokens.json`, `dist/_gridctrl.scss` e `dist/gridctrl.variants.json`. A definição canônica das seis variantes permanece em [`skill/assets/variants.json`](skill/assets/variants.json).
+
+**Integrações executáveis:** [React + componentes locais no padrão shadcn/ui e Radix](examples/react-shadcn/README.md) · [Vue 3](examples/vue/README.md). Para executar o React ou Vue: rode primeiro `npm run build` na raiz, depois `npm install && npm run dev` na pasta do exemplo. Os componentes React do exemplo **não são apresentados como código gerado pelo CLI oficial do shadcn**; usam o modelo copy-to-project com Radix.
+
+**Documentação central:** [Arquitetura e fonte de verdade](docs/ARCHITECTURE.md) · [Tokens e build](docs/TOKENS.md) · [Qualidade e testes](docs/QUALITY.md).
 
 ## ◈ Demonstração visual
 
@@ -169,36 +192,34 @@ Leia [Componentes e shadcn/ui](skill/references/componentes-e-shadcn.md), [Quali
 
 ```text
 GRIDCTRL/
-├── index.html                       # Landing interativa e autônoma
-├── README.md                        # Visão geral e instalação
-├── LICENSE                          # Licença MIT
-├── CONTRIBUTING.md                   # Guia de colaboração
-├── docs/
-│   ├── AGENT-INTEGRATION.md         # Integração e exemplos de agentes
-│   └── images/
-│       ├── gridctrl-banner.svg
-│       ├── preview-desktop.svg
-│       └── preview-mobile.svg
+├── package.json                  # Package JS, CLI e exports
+├── src/
+│   ├── core/                     # Tokens, presets, contraste, CSS/DTCG/Sass
+│   ├── cli/                      # gridctrl themes/validate/build/init
+│   └── react/                    # GridctrlProvider e useGridctrl
+├── skill/
+│   ├── SKILL.md                  # Instruções normativas para agentes
+│   ├── assets/variants.json      # ÚNICA fonte de dados dos temas
+│   ├── assets/variants.schema.json
+│   └── references/              # Guias de auditoria e qualidade
 ├── examples/
-│   └── prompts.md                   # Prompts prontos
-└── skill/
-    ├── SKILL.md                     # Instruções centrais
-    ├── README.md
-    ├── assets/
-    │   ├── variants.json           # Seis presets estáveis
-    │   ├── tokens.json
-    │   ├── tokens.css
-    │   └── robot-reference.webp
-    ├── references/
-    │   ├── quality-gates.md
-    │   ├── componentes-e-shadcn.md
-    │   ├── design-system.md
-    │   └── ... 
-    └── templates/
-        ├── brief.md
-        ├── plano-de-implementacao.md
-        └── relatorio-final.md
+│   ├── react-shadcn/             # Componentes e Radix com Vite
+│   ├── vue/                      # Exemplo Vue 3
+│   └── prompts.md
+├── tests/
+│   ├── unit/                     # Node test runner
+│   └── e2e/                      # Playwright e axe
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── TOKENS.md
+│   ├── QUALITY.md
+│   └── AGENT-INTEGRATION.md
+├── .github/workflows/ci.yml
+├── index.html                    # Landing original, autônoma
+└── README.md
 ```
+
+**Fonte única de verdade para as paletas:** `skill/assets/variants.json`. `dist/` é gerado por compilação; os arquivos `skill/assets/tokens.*` permanecem como compatibilidade documental. A landing independente preserva seu seletor histórico, que não é a API consumível do core.
 
 ## ◈ Qualidade e limitações
 

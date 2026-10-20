@@ -1,0 +1,59 @@
+name: GRIDCTRL · Core, integrations and accessibility
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "skill/assets/variants.json"
+      - "examples/react-shadcn/**"
+      - "examples/vue/**"
+      - "tests/**"
+      - "package.json"
+      - "playwright.config.js"
+      - ".github/workflows/ci.yml"
+      - "index.html"
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install root dev dependencies
+        run: npm install --no-audit --no-fund
+      - name: Validate semantic tokens and presets
+        run: npm run check
+      - name: Unit & CLI tests
+        run: npm test
+      - name: Generate CSS, Sass and DTCG tokens
+        run: npm run build
+      - name: Check npm package contents
+        run: npm pack --dry-run
+      - name: Build React + Radix/shadcn-style showcase
+        run: |
+          cd examples/react-shadcn
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Build Vue showcase
+        run: |
+          cd examples/vue
+          npm install --no-audit --no-fund
+          npm run build
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Real browser checks and WCAG smoke scan
+        run: npm run test:e2e
+      - name: Save browser failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gridctrl-test-evidence
+          path: |
+            test-results/
+            playwright-report/
+          if-no-files-found: ignore

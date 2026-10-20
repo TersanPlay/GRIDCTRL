@@ -1,3 +1,5 @@
+/* COMPATIBILITY ONLY — this static snapshot is NOT the production source of truth.
+   Generate dist/gridctrl.css from skill/assets/variants.json with npm run build. */
 /* GRIDCTRL — use data-gridctrl-variant on the application root. Values are starting points; audit context-specific contrast. */
 :root, [data-gridctrl-variant="industrial"] {
   --gc-canvas:#ECECEC; --gc-surface:#F7F7F7; --gc-ink:#101010;
